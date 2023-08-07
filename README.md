@@ -13,9 +13,9 @@ The app includes the below features:
 
 ## Usage
 
--Please click to open the follwoing link in a modern web browser
--Add your work schedule
--click save
+- Please click to open the follwoing link in a modern web browser
+- Add your work schedule
+- click save
 
 ## Development
 
