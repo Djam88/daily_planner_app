@@ -25,4 +25,20 @@ document.addEventListener("DOMContentLoaded", function () {
     var timeblock = document.createElement("div");
     timeblock.classList.add("time-block", "row");
 
-   
+    var hour = document.createElement("div");
+    hour.classList.add("col-2", "hour");
+    hour.textContent = businessHours[i].label;
+
+    var eventInput = document.createElement("textarea");
+    eventInput.classList.add("col-8", "description");
+
+    // Add past, present, or future class based on current hour
+    if (businessHours[i].hour < currentHour) {
+      eventInput.classList.add("past");
+    } else if (businessHours[i].hour === currentHour) {
+      eventInput.classList.add("present");
+    } else {
+      eventInput.classList.add("future");
+    }
+
+  
