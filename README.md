@@ -13,8 +13,9 @@ The app includes the below features:
 
 ## Usage
 
-Download the starter code for the Daily Planner App.
-Open the index.html file in a web browser.
+-Please click to open the follwoing link in a modern web browser
+-Add your work schedule
+-click save
 
 ## Development
 
