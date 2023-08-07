@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var eventInput = document.createElement("textarea");
     eventInput.classList.add("col-8", "description");
 
-    // Add past, present, or future class based on current hour
+    // current hour based on past present and future
     if (businessHours[i].hour < currentHour) {
       eventInput.classList.add("past");
     } else if (businessHours[i].hour === currentHour) {
@@ -46,4 +46,20 @@ document.addEventListener("DOMContentLoaded", function () {
     saveBtn.innerHTML = '<i class="fas fa-save"></i>';
     saveBtn.setAttribute("data-hour", businessHours[i].hour);
 
- 
+    // Load saved event from local storage
+    var savedEvent = localStorage.getItem("event_" + businessHours[i].hour);
+    eventInput.value = savedEvent;
+
+    // Add event listener to save button
+    saveBtn.addEventListener("click", function () {
+      var hourValue = this.getAttribute("data-hour");
+      var eventText = this.previousElementSibling.value;
+      localStorage.setItem("event_" + hourValue, eventText);
+    });
+
+    timeblock.appendChild(hour);
+    timeblock.appendChild(eventInput);
+    timeblock.appendChild(saveBtn);
+    container.appendChild(timeblock);
+  }
+});
