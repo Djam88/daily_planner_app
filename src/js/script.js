@@ -41,4 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
       eventInput.classList.add("future");
     }
 
-  
+    var saveBtn = document.createElement("button");
+    saveBtn.classList.add("col-2", "saveBtn");
+    saveBtn.innerHTML = '<i class="fas fa-save"></i>';
+    saveBtn.setAttribute("data-hour", businessHours[i].hour);
+
+ 
