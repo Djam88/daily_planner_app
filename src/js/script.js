@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Display the current day at the top of the calendar
-  var currentDate = dayjs().format("dddd, MMMM D, YYYY");
+  var currentDate = dayjs().format("dddd, D MMMM , YYYY");
   var currentDayElement = document.getElementById("currentDay");
   currentDayElement.textContent = currentDate;
 
@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var eventText = this.previousElementSibling.value;
       localStorage.setItem("event_" + hourValue, eventText);
     });
+    // Append through children
 
     timeblock.appendChild(hour);
     timeblock.appendChild(eventInput);
