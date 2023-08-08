@@ -1,9 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Display the current day at the top of the calendar
-  var currentDate = dayjs().format("dddd, D MMMM , YYYY");
+  var currentDate = dayjs().format("dddd,D MMMM , YYYY");
+  currentDate = addOrdinalSuffix(currentDate);
+  $("#currentDay").text(currentDate);
   var currentDayElement = document.getElementById("currentDay");
   currentDayElement.textContent = currentDate;
+  // Helper function to add ordinal suffix to the day number
+  function addOrdinalSuffix(dateString) {
+    var day = parseInt(dateString.split(" ")[2]); // Extract the day number
+    var suffix;
 
+    // Determine the appropriate ordinal suffix based on the day number
+    if (day === 1 || day === 21 || day === 31) {
+      suffix = "st";
+    } else if (day === 2 || day === 22) {
+      suffix = "nd";
+    } else if (day === 3 || day === 23) {
+      suffix = "rd";
+    } else {
+      suffix = "th";
+    }
+
+    // Add the ordinal suffix to the day number and return the updated date string
+    return dateString.replace(/\b\d+\b/, function (match) {
+      return match + suffix;
+    });
+  }
   // Create timeblocks for standard business hours
   var businessHours = [
     { hour: 9, label: "9 AM" },
@@ -32,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var eventInput = document.createElement("textarea");
     eventInput.classList.add("col-8", "description");
 
-    // current hour based on past present and future
+    // Add past, present, or future class based on current hour
     if (businessHours[i].hour < currentHour) {
       eventInput.classList.add("past");
     } else if (businessHours[i].hour === currentHour) {
@@ -56,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function () {
       var eventText = this.previousElementSibling.value;
       localStorage.setItem("event_" + hourValue, eventText);
     });
-    // Append through children
 
     timeblock.appendChild(hour);
     timeblock.appendChild(eventInput);
