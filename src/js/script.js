@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var currentHour = dayjs().hour();
 
-  // Loop through each timeblock and create HTML elements
+  // Loop through each timeblock
   var container = document.querySelector(".container");
   for (var i = 0; i < businessHours.length; i++) {
     var timeblock = document.createElement("div");
@@ -62,6 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       eventInput.classList.add("future");
     }
+
+    // save btn
 
     var saveBtn = document.createElement("button");
     saveBtn.classList.add("col-2", "saveBtn");
