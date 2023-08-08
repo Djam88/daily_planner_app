@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     saveBtn.innerHTML = '<i class="fas fa-save"></i>';
     saveBtn.setAttribute("data-hour", businessHours[i].hour);
 
-    // Load saved event from local storage
+    // Load saved event
     var savedEvent = localStorage.getItem("event_" + businessHours[i].hour);
     eventInput.value = savedEvent;
 
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var eventText = this.previousElementSibling.value;
       localStorage.setItem("event_" + hourValue, eventText);
     });
-
+    // Append through timeblock
     timeblock.appendChild(hour);
     timeblock.appendChild(eventInput);
     timeblock.appendChild(saveBtn);
