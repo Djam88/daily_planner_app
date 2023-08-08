@@ -25,7 +25,7 @@ To explore and customize the code, navigate to the JavaScript file and CSS file.
 
 ## Example
 
-Daily Planner App Example
+![Daily Planner App Example](./images/Screenshot%202023-08-08%20231522.png)
 
 ## Contribution
 
